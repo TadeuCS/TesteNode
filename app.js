@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const url = 'mongodb+srv://usuario_admin:mutkch@clusterapi-g2i3s.mongodb.net/test?retryWrites=true&w=majority';
 const options = { poolSize: 5, useNewUrlParser: true , useUnifiedTopology: true };
 
+
 mongoose.connect(url, options);
 mongoose.set('useCreateIndex', true);
 

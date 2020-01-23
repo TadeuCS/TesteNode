@@ -4,6 +4,7 @@ const router = express.Router();
 const Users = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 
 //funções auxiliares
 const createUserToken = (userId) => {
@@ -19,9 +20,10 @@ const createUserToken = (userId) => {
 
 router.get('/', async (req, res) => {
     try {
-        await Users.find();
+        const data = await Users.find();
         return res.send(data);
     } catch (error) {
+        console.log(error);
         return res.send({ error: 'Erro na consulta de Usuários!' });
     }
 });
