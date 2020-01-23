@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('./config/config');
 
-const url = 'mongodb+srv://usuario_admin:mutkch@clusterapi-g2i3s.mongodb.net/test?retryWrites=true&w=majority';
+const url = config.dabase_url;
 const options = { poolSize: 5, useNewUrlParser: true , useUnifiedTopology: true };
-
 
 mongoose.connect(url, options);
 mongoose.set('useCreateIndex', true);
